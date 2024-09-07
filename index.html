@@ -1,0 +1,87 @@
+<!--A tag doctype é a tag que define o tipo do documento que está sendo criado. Por padrão,
+o preenchimento automático do VS Code completa o cabeçalho incial do código, bastando, para isso, digitar "!";-->
+<!DOCTYPE html>
+<!--A tag html é a tag "root", e por padrão possui o atributo "lang", que define a linguagem
+do documento;-->
+<html lang="pt-br" class="light">
+  <!--O Head é responsável por ajustar configurações do documento que não são visíveis
+   para quem está acessando a página. O único elemento visível é o "<title></title>";-->
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Define quais o conjunto de caracteres a serem usados:-->
+    <meta charset="UTF-8" />
+    <!--Permite a compatibilidade com navegadores antigos:-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--Define que a parte visível da página possui a dimensão do dispositivo:-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevLinks</title>
+    <!--O href da tag link indica em que lugar do "mundo" está o css que será referenciado;-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!--O body é a parte visível da página;-->
+  <body>
+    <!--Div é uma caixa genérica que o browser não aplica um estilo padrão à ela.-->
+    <div id="container">
+      <div id="profile">
+        <!--O atributo "src" é usado para encontrar a localização da imagem (localmente ou na internet). O atributo "alt" é usado como uma alternativa, caso a imagem do src não seja encontrada (o que deve aparecer de texto no lugar da imagem inicial).-->
+        <img src="./assets/avatar.png" alt="Imagem de maiky brito sorrindo, usando óculos e camisa preta, barba e fundo amarelo." />
+        <p>@maikybrito</p>
+      </div>
+      <!--onclick determina que função deve ser executada no javascript quando o switch for clicado.-->
+      <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+      </div>
+      <!--A tag ul é uma lista não ordenada, e a tag li é um item da lista. A tag a é um link, e o atributo href é o endereço para onde o link aponta. O atributo target="_blank" faz com que o link seja aberto em uma nova aba. O atributo rel="noopener noreferrer" é uma medida de segurança para evitar ataques de phishing.-->
+      <ul>
+        <li>
+          <a href="#">Inscrever-se no NLW</a>
+        </li>
+        <li>
+          <a href="#">Baixe meu e-book</a>
+        </li>
+        <li>
+          <a href="#">Veja meu portifólio</a>
+        </li>
+        <li>
+          <!--O atributo target configura o funcionamento de como o link vai se comportar na página. Quando setado como "_blank" ele irá abrir uma outra aba no navegador.-->
+          <a href="https://rocketseat.com.br/explorer" target="_blank"
+            >Conheça o Explorer</a
+          >
+        </li>
+      </ul>
+      <div id="social-links">
+        <a href="#" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="#" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <a href="#" target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </div>
+      <!--Footer é uma tag que é normalmente usada para criar rodapés nos sites.-->
+      <footer>
+        Feito com ♥ pela <a href="https:rocketseat.com.br">Rocketseat</a>
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

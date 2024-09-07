@@ -1,0 +1,233 @@
+/*O comando abaixo é utilizado para zerar as margens e os paddings de todos os elementos da página. Isso é feito para que a página fique mais limpa e organizada. Ele zera todos os padrões que já vem no navegador.*/
+* {
+  margin: 0;
+  padding: 0;
+  /*O comando box-sizing é utilizado para definir como o tamanho total de um elemento é calculado. O valor "border-box" é utilizado para que o tamanho total do elemento seja calculado considerando o padding e a borda. Isso é feito para que o tamanho total do elemento não seja alterado quando a borda e o padding são inseridos.*/
+  box-sizing: border-box;
+}
+
+/*Sudo-Selector que representa "html", ou seja a raíz do código para ser definido variáveis.*/
+:root {
+  /*Um nome qualquer "--text-color" que será usado para definir a cor do texto da página*/
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --suface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --suface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*O comando background-image é usado para inserir uma imagem no fundo da página. A função url() é usada para mostrar em qual local se encontra a imagem que será inserida.*/
+  /*background-image: url(./assets/bg-mobile.jpg);*/
+  /*O comando background-repeat já vem por padrão no css com o atributo repeat ativado. Então é necessário desativá-lo para que a imagem inserida não se repita ao longo da página.*/
+  /*background-repeat: no-repeat;*/
+  /*O comando background-position é utilizado para posicionar a imagem na página. É importante mencionar que esse comando funciona utilizando a lógica de eixo y e eixo x. O argumento a esquerda (top) é referente ao eixo y e o argumento a direita (center) ao eixo x.*/
+  /*background-position: top center;*/
+  /*O comando background-size é utilizado para dimensionar a imagem na página. O atributo cover é usado para cobrir o fundo inteiro com a imagem.*/
+  /*background-size: cover;*/
+
+  /*É possível realizar os mesmos mecanismos usados acima com um shorthand (atalho): background. O atalho funciona com uma ordem de atributos específica, como mostrado abaixo:
+  
+  background: color image repeat position/size;
+
+  É necessário usar "/" após o atributo position para utilizar o comando size. Aplicando o comando em conjunto, fica assim:
+  */
+
+  background: var(--bg-url) no-repeat top center/cover;
+
+  /*Como o css utiliza a regra da cascata, não faz mal deixar os comandos repetidos.*/
+}
+
+/*O "*" é o seletor universal. Com o comando abaixo, o body todo será afetado.*/
+body * {
+  /*<uniquifier>: Use a unique and descriptive class name
+  <weight>: Use a value from 100 to 900*/
+
+  font-family: "Inter", sans-serif;
+  /*var() é a função que precisa ser utilizada para que a variável --text-color faça efeito no código.*/
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*O comando border possui 3 atributos: A medida da borda, o tipo da borda e a cor dela.*/
+
+  /*border: 1px solid red;*/
+
+  /*O comando "margin" cria uma margem exterior na caixa. O atributo "auto", quando aplicado tanto a esquerda, quanto a direita de uma caixa, centraliza ela.*/
+  margin-right: auto;
+  margin-left: auto;
+  /*Esses dois comandos podem ser substituidos por apenas: 
+  margin: auto;
+  Essa função automática só é aplicada as margens da direita e da esquerda de uma caixa. Para cima e para baixo não é aplicado. Para alterar essas margens é necessário usar os comandos width e height.
+  */
+
+  margin-top: 56px;
+  padding: 0 24px;
+}
+
+/*Profile*/
+
+#profile {
+  text-align: center;
+  /*Por padrão os navegadores já vem com font-size de 16px;*/
+  font-size: 16px;
+  padding: 24px;
+}
+
+/*No seletor profile, quando se usa o atributo "img", o comando identifica a imagem dentro da tag html.*/
+#profile img {
+  /*O comando display é utilizado para definir o tipo de exibição de um elemento. O valor "block" é utilizado para que a imagem seja exibida em um bloco, ou seja, ela ocupa toda a largura da página. Isso deve ser feito, pois toda imagem é do tipo inline*/
+
+  /*display: block;*/
+
+  /*O comando margin é utilizado para criar uma margem exterior na caixa. O valor "auto" é utilizado para centralizar a imagem.*/
+
+  /*margin: auto;*/
+
+  width: 112px;
+  /*É importante dizer que não é interassante utilizar o atributo "height" pois no css não é algo tão necessário, já que a altura da caixa depende da quantidade de conteúdo que a preenche. Isso torna a página fluida*/
+}
+/*Há outra maneira de centralizar a imagem na div. É possível dizer que o "pai" da imagem, ou seja, o "profile" será centralizado, desta maneira: 
+#profile{
+  text-align: center;
+}
+E aí logo em seguida, a imagem será centralizada. Basta colocar o comando anteriormente citado.
+#profile img{
+  width: 112px;
+}
+Mas isso só é possível porque a imagem é do tipo inline. Se a imagem fosse do tipo block, seria necessário usar o comando "margin: auto" para centralizá-la.
+*/
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*Switch*/
+
+#switch {
+  /*Como estou usando o comando "position relative" como pai, o comando "position absolute" não é mais absoluto. Agora, ele se delimita a apenas ao espaço dentro da tag button;*/
+  position: relative;
+  /*Com o tamanho da tag delimitado ao tamanho do span (track), é possível delimitar ainda mais a movimentação absoluta do switcher.*/
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  /*O CSS, por padrão tenta colocar os elementos sempre ao lado do outro quando são display inline ou um em cima do outro quando são display block. Porém, quando é necessário uma sobreposição de elementos, é necessário trabalhar com a ideia de camadas. Quando se usa o comando "position: absolute", é liberado o comando z-index, que permite manipular a camada a qual um elemento se encontra como mostrado abaixo.*/
+  position: absolute;
+  top: 50%; /*Maneira de alinhar posição absoluta*/
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%); /*Maneira de alinhar posição absoluta*/
+}
+
+.light #switch button {
+  right: initial;
+  left: initial;
+}
+
+#switch span {
+  /*A tag span, por padrão não aceita algumas propriedades como width e height, então é necessário modifica-la para display block;*/
+  display: block;
+  width: 64px;
+  height: 24px;
+  border: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  /*Como alguns navegadores não suportam o comando "backdrop-filter" (como mostra o site caniuseit.com) é necessário colocar o termo "-webkit-" antes do comando.*/
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*Links*/
+
+ul {
+  /*Quando coloca-se none no comando list-style, a lista fica sem os pontos que vêm por padrão.*/
+  list-style: none;
+  /*O display flex faz com que os elementos da <ul> se tornem flexíveis dentro da caixa da <ul>, de maneira que eles caibam dentro da caixa*/
+  display: flex;
+  flex-direction: column;
+  /*O gap cria espaço entre os elementos. Não cria nem em cima nem embaixo, dependendo do tipo do flex-direction. Se estiver em row (e não em column), então os espaços ficarão na horizontal.*/
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  /*Alinha os itens no eixo x no centro da caixa*/
+  align-items: center;
+  /*Alinha os itens no eixo y no centro da caixa*/
+  justify-content: center;
+
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  /*O comando backdrop-filter com o atributo blur() faz com que o fundo do elemento fique borrado. Esse comando está um pouco obsoleto e em alguns navegadores não é possível executá-lo. Dito isso, é importante acessar o site https://caniuse.com/ pois nele é mostrado a compatibilidade dos navegadores com algumas funções.*/
+  backdrop-filter: blur(4px);
+
+  /*O comando abaixo altera o design do texto. Neste exemplo a linha que estava abaixo do link foi removida.*/
+  text-decoration: none;
+
+  font-weight: 500;
+  /*transition é um comando de transição. Possui muitas propriedades, entretanto, abaixo são mostradas o que deve ser transicionado e em quanto tempo.*/
+  transition: background 0.5;
+}
+
+/*Pseudo-Selector:
+Nele, as modificações são aplicadas quando o mouse esta sobre o elemento.*/
+ul li a:hover {
+  background: var(--suface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*Social Links:*/
+
+div #social-links {
+  /*O gap só é abilitado quando o display flex é ativado*/
+  display: flex;
+  justify-content: center;
+  /*align-content: center;*/
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+div #social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+div #social-links a:hover {
+  background: var(--highlight-color);
+  /*Bolinha perfeita:*/
+}
+
+/*Rodapé*/
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
